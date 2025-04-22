@@ -1,34 +1,34 @@
-let pizza;
-function orderPizza() {
-  console.log("order pizza");
+// let pizza;
+// function orderPizza() {
+//   console.log("order pizza");
 
-  setTimeout(() => {
-    pizza = "the Pizza";
-    console.log("pizza was orderd");
-  }, 5000);
-  console.log("Order placed for " + pizza);
-}
+//   setTimeout(() => {
+//     pizza = "the Pizza";
+//     console.log("pizza was orderd");
+//   }, 5000);
+//   console.log("Order placed for " + pizza);
+// }
 
-orderPizza();
-console.log("Welcome");
-console.log("call coli");
+// orderPizza();
+// console.log("Welcome");
+// console.log("call coli");
 
-console.log(`Eat ${pizza}`);
+// console.log(`Eat ${pizza}`);
 
 //by applying the asychronous operation
 
-// function orderPizza(callback) {
-//   setTimeout(() => {
-//     const pizza = "pizza";
-//     callback(pizza);
-//   }, 2000);
-// }
+function orderPizza(callback) {
+  setTimeout(() => {
+    const pizza = "pizza";
+    callback(pizza);
+  }, 2000);
+}
 
-// function pizzaReady(ToEat) {
-//   console.log(`eat the ${ToEat}`);
-// }
-// console.log("call coli");
-// orderPizza(pizzaReady);
+function pizzaReady(ToEat) {
+  console.log(`eat the ${ToEat}`);
+}
+console.log("call coli");
+orderPizza(pizzaReady);
 
 //there is one problem in promises which is called callbackhell
 //these is problem is when we have more than 2 things that depenfd to each other that where the issue comes
