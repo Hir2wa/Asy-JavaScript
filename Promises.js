@@ -65,3 +65,34 @@ function onError(data) {
 getWeather().then(getWeatherIcon).then(onSuccess, onError);
 
 //now we managed to event to put promise chaining
+
+function func1() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve("Wow");
+    }, 100);
+  });
+}
+
+function func2() {
+  return new Promise(function (resolve, reject) {
+    setTimeout(() => {
+      resolve("Good Data");
+    }, 100);
+  });
+}
+
+function theSuccess(data) {
+  console(`Success:  ${data}`);
+}
+
+function theError(data) {
+  console.log(` 
+        Failer  ${data}`);
+}
+
+function inTheEnd() {
+  console.log("finally we be fone");
+}
+
+func1().then(func2).then(onSuccess).catch(onError).finally(inTheEnd);
