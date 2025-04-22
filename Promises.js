@@ -55,11 +55,11 @@ function getWeatherIcon(weather) {
 }
 
 function onSuccess(data) {
-  console.log(`Success ${data}`);
+  console.log(`Success: ${data}`);
 }
 
 function onError(data) {
-  console.log(`Error ${data}`);
+  console.log(`Error: ${data}`);
 }
 
 getWeather().then(getWeatherIcon).then(onSuccess, onError);
