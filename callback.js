@@ -1,32 +1,34 @@
-// let pizza;
-// function orderPizza() {
-//   console.log("order pizza");
+let pizza;
+function orderPizza() {
+  console.log("order pizza");
 
-//   setTimeout(() => {
-//     pizza = "the Pizza";
-//     console.log("pizza was orderd");
-//   }, 2000);
-//   console.log("Order placed for " + pizza);
-// }
+  setTimeout(() => {
+    pizza = "the Pizza";
+    console.log("pizza was orderd");
+  }, 5000);
+  console.log("Order placed for " + pizza);
+}
 
-// orderPizza();
-// console.log("call coli");
-// console.log(`Eat ${pizza}`);
+orderPizza();
+console.log("Welcome");
+console.log("call coli");
+
+console.log(`Eat ${pizza}`);
 
 //by applying the asychronous operation
 
-function orderPizza(callback) {
-  setTimeout(() => {
-    const pizza = "pizza";
-    callback(pizza);
-  }, 2000);
-}
+// function orderPizza(callback) {
+//   setTimeout(() => {
+//     const pizza = "pizza";
+//     callback(pizza);
+//   }, 2000);
+// }
 
-function pizzaReady(ToEat) {
-  console.log(`eat the ${ToEat}`);
-}
-console.log("call coli");
-orderPizza(pizzaReady);
+// function pizzaReady(ToEat) {
+//   console.log(`eat the ${ToEat}`);
+// }
+// console.log("call coli");
+// orderPizza(pizzaReady);
 
 //there is one problem in promises which is called callbackhell
 //these is problem is when we have more than 2 things that depenfd to each other that where the issue comes
@@ -62,6 +64,9 @@ thind1(() => {
 //whetheas in previos examples  i wasn't needinng i was just passing the call back function i have just create please
 
 //simple question may these work
-thind1(thing2);
+//thind1(thing2);
 // if we only neeed these
 //it could work only if the thing2 function does not have also a callback right
+
+// to avoid thes me need to use promises to avoid callback hell
+//which help us to manage asy operation well
