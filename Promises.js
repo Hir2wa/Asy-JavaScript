@@ -63,3 +63,5 @@ function onError(data) {
 }
 
 getWeather().then(getWeatherIcon).then(onSuccess, onError);
+
+//now we managed to event to put promise chaining
