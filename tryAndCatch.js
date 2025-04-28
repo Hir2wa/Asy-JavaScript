@@ -1,6 +1,6 @@
 function getData() {
   return new Promise(function (resolve, reject) {
-    resolve("Something went wrong");
+    reject("Something went wrong");
   });
 }
 
