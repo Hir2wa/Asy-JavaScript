@@ -17,3 +17,5 @@ ex on object methods
 .all async function return a promise
 .Error handling with try/catch
 also can work
+
+why do people use try and catch in asys and await mostly

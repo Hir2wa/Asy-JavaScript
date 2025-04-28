@@ -1,6 +1,6 @@
 function getData() {
   return new Promise(function (resolve, reject) {
-    reject("Something went wrong");
+    resolve("Something went wrong");
   });
 }
 
@@ -8,12 +8,9 @@ async function start2(params) {
   try {
     let result = await getData();
     console.log(` succefully: ${result}`);
-  } catch (error) {}
-
-  const result = await getData().catch((error) => {
-    console.log(`Error ${error}`);
-  });
-  console.log(error);
+  } catch (error) {
+    console.log(`Error Cought ${error}`);
+  }
 }
 
 start2();
