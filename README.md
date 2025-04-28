@@ -30,3 +30,18 @@ how does fecth get know where to find the information
 1. you pass a url into that function //you can use in api you want aslong as it is publical
    but actually fetch request more than a url
 2. fetch it takes a request object and retur a response object;
+   both these properties have their own methods and properties
+
+when you do these actually js create a request object for you
+i mean these one
+const request =
+
+new Request (someapi.com);
+also these request will have a method is it get is post
+
+these one is created
+const response = fetch (request);
+you don't have to those js sometime do it for you
+
+so we move to these one only
+const response = fetch('someApi.com');
