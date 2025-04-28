@@ -27,7 +27,7 @@ function realPromise() {
 
   return new Promise(function (resolve, reject) {
     fetch(url)
-      .then((response) => response.json())
+      .then((response) => response.text())
       .then((data) => resolve(data))
       .catch((err) => reject(err));
   });
