@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 function myCallBack(callback) {
   setTimeout(() => {
     callback("hello world");
@@ -8,7 +7,6 @@ function myCallBack(callback) {
 myCallBack((name) => {
   console.log(name);
 });
-=======
 // let pizza;
 // function orderPizza() {
 //   console.log("order pizza");
@@ -81,4 +79,3 @@ thind1(() => {
 
 // to avoid thes me need to use promises to avoid callback hell
 //which help us to manage asy operation well
->>>>>>> a5cadd74282c01a742150d0a5da45e028dddfd39
