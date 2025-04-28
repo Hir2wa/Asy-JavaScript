@@ -19,3 +19,14 @@ ex on object methods
 also can work
 
 why do people use try and catch in asys and await mostly
+
+                  fetch api
+
+===============================================
+fetch is a function buld into js you can to send a request to an api
+
+how does fecth get know where to find the information
+
+1. you pass a url into that function //you can use in api you want aslong as it is publical
+   but actually fetch request more than a url
+2. fetch it takes a request object and retur a response object;
