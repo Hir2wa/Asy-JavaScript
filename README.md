@@ -49,3 +49,5 @@ const response = fetch('someApi.com');
 ==============================
 GET Request Parameters
 where you need to send some data to api telling it what to get
+
+hearde that a different to do that where you need to use request object
