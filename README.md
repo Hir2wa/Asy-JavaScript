@@ -99,4 +99,4 @@ method race : returns promise which was resolved first to finish wins
 method all: retursn true if all promises resolved and false when one reject no bolloen but returns rejected in the console
 
 method allsettled()
-whatever for each promes returns an array of status and and value and reason
+whatever for each promise returns an array of status and and value and reason
