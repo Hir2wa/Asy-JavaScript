@@ -51,3 +51,45 @@ GET Request Parameters
 where you need to send some data to api telling it what to get
 
 hearde that a different to do that where you need to use request object
+
+by not needing addition header you can pass url only
+but if requested additional one you will need to create request variable to to create Request object
+where first parm is url and other are , {
+
+headers:{
+and put the following objects and then continue
+}
+
+}
+
+//here we go back to error handling
+making a trip to api is concerdered as success even if the api is giving the error
+
+when we get the error on fetch that means the fetch method fails but when i get diffferent erro on the inside api is concered as successfully
+
+here we can use the response object which have a property
+status:
+ok:
+
+we have server error where we check them using if condition in try
+data.error.message
+in try is that we failed even failing
+
+// we use post in additional header  
+when we need to submit forms and
+
+//more to cover cacheing and cores
+//on mdn using the fetch api +learn by doing
+
+//fetch arrived in modern browsers btn 2015 and 2017
+//arrived on node 2022
+xhr htttp request by requesting something to server
+//http request  
+why fetch ? the most avious answer
+is that we can have native support +docs
+no installation required
+support most cases from modern application
+
+//the xhr way was kind of mess it is based on callbacks
+vs promisees it was realy had to setup
+fect achieves the same things but with same thing
