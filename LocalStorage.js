@@ -4,28 +4,28 @@
 //sync /blocking not as fetch
 //used a lot in caching , savinf user settings tokesns and more.
 
-//save data
-localStorage.setItem("username", "alainfabrice");
-//getData()
-const name = localStorage.getItem("username");
-console.log(name);
+// //save data
+// localStorage.setItem("username", "alainfabrice");
+// //getData()
+// const name = localStorage.getItem("username");
+// console.log(name);
 
-// remove data
-localStorage.removeItem("username");
+// // remove data
+// localStorage.removeItem("username");
 
-// clear all
-localStorage.clear();
+// // clear all
+// localStorage.clear();
 
-const user = {
-  name: "Alain",
-  level: "JS Pro",
-};
+// const user = {
+//   name: "Alain",
+//   level: "JS Pro",
+// };
 
-//to save
-localStorage("username", JSON.stringify(user));
-//get data
-const data = JSON.parse(localStorage.getItem("user"));
-console.log(data);
+// //to save
+// localStorage("username", JSON.stringify(user));
+// //get data
+// const data = JSON.parse(localStorage.getItem("user"));
+// console.log(data);
 
 async function getData() {
   const cached = localStorage.getItem("kigaliTime");
