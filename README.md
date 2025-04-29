@@ -45,3 +45,7 @@ you don't have to those js sometime do it for you
 
 so we move to these one only
 const response = fetch('someApi.com');
+
+==============================
+GET Request Parameters
+where you need to send some data to api telling it what to get
