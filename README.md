@@ -107,3 +107,16 @@ the request you have to create it
 fetch("https://api.example.com/data", { method: "GET" });
 
 fetch("https://api.example.com/data");
+
+we have different methods to be applied on the request object
+-put pull update
+-get by default
+-post posting information
+-patch partial update used to update part of the resources
+-delete removing something on the server
+
+http methods
+
+fetch('https://jsonplaceholder.typicode.com/todos/1')
+.then(response => response.json())
+.then(json => console.log(json))
