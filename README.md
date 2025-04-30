@@ -100,3 +100,10 @@ method all: retursn true if all promises resolved and false when one reject no b
 
 method allsettled()
 whatever for each promise returns an array of status and and value and reason
+
+//you don't create a response it is automatically created by the fetch method woow
+the request you have to create it
+
+fetch("https://api.example.com/data", { method: "GET" });
+
+fetch("https://api.example.com/data");
