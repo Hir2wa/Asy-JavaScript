@@ -120,3 +120,5 @@ http methods
 fetch('https://jsonplaceholder.typicode.com/todos/1')
 .then(response => response.json())
 .then(json => console.log(json))
+
+the Error you get which is not blocking like getting underfinded is timing issue which is caused by accessing data which are not yet ready
