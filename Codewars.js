@@ -28,4 +28,11 @@ console.log(returnUpperCase(["HELLO", "world", "BYE", "JavaScript"]));
 
 //kata to addd something at the end  of each item on the array
 let string = ["focus", "learn", "code"];
-function mappedArray(params) {}
+function mappedArray(params) {
+  let newArray = params.map((char, index, arrayy) => {
+    return char + "🧠";
+  });
+  return newArray;
+}
+
+console.log(mappedArray(string));
