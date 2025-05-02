@@ -36,3 +36,10 @@ function mappedArray(params) {
 }
 
 console.log(mappedArray(string));
+
+let arrayyy = ["learn", "JavaScript", "map", "developer", "forEach"];
+arrayyy.forEach((value, index, arr) => {
+  if (value.length > 5) {
+    console.log("🔥 Important word:  " + value);
+  }
+});
