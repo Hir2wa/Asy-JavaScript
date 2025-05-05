@@ -132,3 +132,16 @@ Loading States: How to show spinners/loaders using async events.
 Async Iteration: Using for await...of to loop over async data streams.
 
 Web Workers: Run heavy async stuff in background threads.
+
+//web workers
+🧠 CPU-wise: What’s Really Going On?
+When you spin up a Web Worker, the browser creates a new thread (under the hood, via OS APIs).
+
+Now the CPU has multiple threads to schedule on its cores.
+
+It can process your Web Worker concurrently with the UI.
+
+This works beautifully on multi-core CPUs (most devices today).
+
+//they talk through postMessage()
+like text between friends
