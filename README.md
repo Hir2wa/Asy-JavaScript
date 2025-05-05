@@ -151,3 +151,4 @@ like text between friends
 1.webworker 2.
 2.Streams and Response.body 3.
 3.AbortController to cancel fetch
+//📚 Every deep skill was once a basic you kept practicing.
