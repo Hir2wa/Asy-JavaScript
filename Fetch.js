@@ -19,9 +19,13 @@ getData();
 // There’s also res.blob() and res.formData() for files and forms.
 
 // Wrong: Just logging the response
-const res = await fetch("https://jsonplaceholder.typicode.com/users");
-console.log(res); // Just metadata, no actual user info
+async function name(params) {
+  const res = await fetch("https://jsonplaceholder.typicode.com/users");
+  console.log(res);
+  const data = await res.json();
+  console.log(data);
+}
+// Just metadata, no actual user info
 
 // Right:
-const data = await res.json();
-console.log(data); // 🎉 Now you see the real data (array of users)
+// 🎉 Now you see the real data (array of users)
