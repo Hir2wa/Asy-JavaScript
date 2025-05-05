@@ -148,4 +148,6 @@ like text between friends
 
 //these is one technique used when dealing with large things which can take time or fleeze you browsr
 
-1.webworker
+1.webworker 2.
+2.Streams and Response.body 3.
+3.AbortController to cancel fetch
