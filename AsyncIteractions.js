@@ -13,3 +13,19 @@ async function fetchAll() {
 }
 
 fetchAll();
+
+const urlss = [
+  "https://jsonplaceholder.typicode.com/posts/1",
+  "https://jsonplaceholder.typicode.com/posts/2",
+  "https://jsonplaceholder.typicode.com/posts/3",
+];
+
+async function fetchAllPosts() {
+  for await (let urls of urlss) {
+    const res = await fetch(urls);
+    const data = await res.json();
+    console.log(data.title);
+  }
+}
+
+fetchAllPosts();
