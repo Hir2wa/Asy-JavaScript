@@ -7,3 +7,5 @@ async function getData(params) {
 }
 
 getData();
+
+//fetch() is already a built-in Promise-based function.
