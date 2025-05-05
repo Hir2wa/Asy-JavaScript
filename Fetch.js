@@ -17,3 +17,11 @@ getData();
 // Use res.json() if the response is JSON (which is usually the case for APIs).
 
 // There’s also res.blob() and res.formData() for files and forms.
+
+// Wrong: Just logging the response
+const res = await fetch("https://jsonplaceholder.typicode.com/users");
+console.log(res); // Just metadata, no actual user info
+
+// Right:
+const data = await res.json();
+console.log(data); // 🎉 Now you see the real data (array of users)
