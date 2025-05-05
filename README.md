@@ -122,3 +122,13 @@ fetch('https://jsonplaceholder.typicode.com/todos/1')
 .then(json => console.log(json))
 
 the Error you get which is not blocking like getting underfinded is timing issue which is caused by accessing data which are not yet ready
+
+Throttling/Debouncing: Control how often async stuff (like fetch) runs during user input.
+
+Lazy Loading with Promises: Only fetch/load what you need when you need it.
+
+Loading States: How to show spinners/loaders using async events.
+
+Async Iteration: Using for await...of to loop over async data streams.
+
+Web Workers: Run heavy async stuff in background threads.
