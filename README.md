@@ -145,3 +145,7 @@ This works beautifully on multi-core CPUs (most devices today).
 
 //they talk through postMessage()
 like text between friends
+
+//these is one technique used when dealing with large things which can take time or fleeze you browsr
+
+1.webworker
