@@ -152,3 +152,10 @@ like text between friends
 2.Streams and Response.body
 3.AbortController to cancel fetch
 //📚 Every deep skill was once a basic you kept practicing.
+When you call fetch(), you’re the one making a Request — just like filling out a form and handing it to the server. You get to choose:
+
+Key What it does
+method GET, POST, PUT, DELETE — HTTP verbs
+headers Add things like Content-Type, tokens, etc
+body The data you're sending — usually JSON for APIs
+mode, cache, credentials Other config for CORS, cookies, etc
