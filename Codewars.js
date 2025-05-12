@@ -43,3 +43,23 @@ arrayyy.forEach((value, index, arr) => {
     console.log("🔥 Important word:  " + value);
   }
 });
+
+// finding the target if there is a match in the array
+function twoSum(numbers, target) {
+  let getIndex = 0;
+
+  while (getIndex < numbers.length) {
+    let array = numbers[getIndex];
+
+    for (const [index, element] of numbers.entries()) {
+      if (index !== getIndex) {
+        let sum = array + element;
+        if (sum === target) {
+          return [getIndex, index];
+        }
+      }
+    }
+    getIndex++;
+  }
+}
+console.log(twoSum([3, 2, 4], 6));
