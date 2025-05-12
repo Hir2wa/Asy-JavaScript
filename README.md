@@ -159,3 +159,6 @@ method GET, POST, PUT, DELETE — HTTP verbs
 headers Add things like Content-Type, tokens, etc
 body The data you're sending — usually JSON for APIs
 mode, cache, credentials Other config for CORS, cookies, etc
+
+// You want to go next-level and pass
+// omplex data (like objects or even typed arrays) between threads?

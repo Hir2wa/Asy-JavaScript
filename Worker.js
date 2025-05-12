@@ -1,4 +1,4 @@
-// worker.js
+
 onmessage = function (e) {
   let count = 0;
   for (let i = 0; i < e.data; i++) {
@@ -7,5 +7,4 @@ onmessage = function (e) {
   postMessage(`Done counting to ${count}`);
 };
 
-// You want to go next-level and pass
-// omplex data (like objects or even typed arrays) between threads?
+
