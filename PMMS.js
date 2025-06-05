@@ -41,5 +41,41 @@ async function testFunction() {
 
 testFunction();
 
-//Q2
+//Q2.
 //Write a javascript function that changes the background color of the body (HTML tag) every 3 seconds.
+
+//Q3.
+//using xmlhttp request
+
+function xmlTest(url) {
+  return new Promise((resolve, reject) => {
+    let xhr = new XMLHttpRequest();
+    xhr.open("GET", url);
+
+    xhr.onload = () => {
+      if (xhr.status >= 200 && xhr.status <= 300) {
+        resolve(xhr.responseText);
+      } else {
+        reject("Request Error  ");
+      }
+    };
+
+    xhr.onerror = () => {
+      reject("Network Error ");
+    };
+
+    xhr.send();
+  });
+}
+
+async function run() {
+  try {
+    let response = xmlTest("https://my-random-api.com/data");
+    let data = JSON.parse(response);
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+run();
