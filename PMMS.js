@@ -27,3 +27,16 @@ createAlarm("Alain", 3000)
   .catch((Error) => {
     console.log(Error);
   });
+
+// transforming to async and await
+
+async function testFunction() {
+  try {
+    let result = await createAlarm("alain", 4000);
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+testFunction();
