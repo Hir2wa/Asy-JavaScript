@@ -17,7 +17,7 @@ function createAlarm(name, delay) {
   });
 }
 
-createAlarm("Alain", 7)
+createAlarm("Alain", 3000)
   .then((answers) => {
     console.log(answers);
   })
@@ -27,3 +27,10 @@ createAlarm("Alain", 7)
   .catch((Error) => {
     console.log(Error);
   });
+
+let array = [2, 4, 5, 6];
+
+for (let index = 0; index < array.length; index++) {
+  const element = array[index];
+  console.log(element);
+}
