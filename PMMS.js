@@ -79,5 +79,3 @@ async function run() {
 }
 
 run();
-
-console.log(4);
