@@ -5,6 +5,8 @@
 // rejected with an error message stating Delay is not
 // sufficient
 
+const { json } = require("express");
+
 function createAlarm(name, delay) {
   return new Promise(function (resolve, reject) {
     if (delay < 2) {
@@ -79,3 +81,52 @@ async function run() {
 }
 
 run();
+
+//Q3:
+//Write a JavaScript function
+//that fetches data from an API and retries the request a specified number of times if it fails.
+
+async function retriesFetch(url) {
+  tries = 0;
+  limit = 5;
+  while (tries < limit) {
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      console.log(data);
+      return;
+    } catch (error) {
+      tries++;
+      console.log(`trial ${tries} fails `);
+
+      if (tries === limit) {
+        console.log(`All ${tries}  failed `);
+        console.log(`Error ${error}`);
+      }
+    }
+  }
+}
+
+retriesFetch("https://jsonplaceholder.typicode.com/users");
+
+//Q4. You are building a web application that fetches data from multiple
+// APIs to display information about different countries. You need to fetch the country
+//  details from one API and the weather information for the capital city from another API.
+
+async function CountryData(countriesUrl) {
+  let res = await fetch(countriesUrl);
+  let data = await res.json();
+  return data;
+}
+let country = CountryData("https://restcountries.com/v3.1/name/{countryName}");
+console.log(country);
+
+async function weather(country) {
+  let res = await fetch(
+    "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
+  );
+  let data = await res.json();
+  return data;
+}
+
+let weather = weather(country);
