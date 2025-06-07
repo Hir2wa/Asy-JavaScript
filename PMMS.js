@@ -113,20 +113,26 @@ retriesFetch("https://jsonplaceholder.typicode.com/users");
 // APIs to display information about different countries. You need to fetch the country
 //  details from one API and the weather information for the capital city from another API.
 
-async function CountryData(countriesUrl) {
-  let res = await fetch(countriesUrl);
+async function CountryData(countryName) {
+  let res = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
   let data = await res.json();
   return data;
 }
-let country = CountryData("https://restcountries.com/v3.1/name/{countryName}");
-console.log(country);
+let city = CountryData();
+console.log(city);
 
 async function weather(country) {
   let res = await fetch(
     "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
   );
-  let data = await res.json();
+  let data = await res.text();
   return data;
 }
 
-let weather = weather(country);
+let climate = weather();
+
+function Datails() {
+  return ` ${weather}  , ${city}`;
+}
+
+console.log(Datails());
