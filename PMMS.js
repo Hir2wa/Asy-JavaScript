@@ -116,23 +116,26 @@ retriesFetch("https://jsonplaceholder.typicode.com/users");
 async function CountryData(countryName) {
   let res = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
   let data = await res.json();
-  return data;
+  let country = data[0];
+  let countryOfficial = country.name.common;
+  console.log(countryOfficial);
+
+  console.log(country);
 }
-let city = CountryData();
-console.log(city);
+CountryData("Rwanda");
 
-async function weather(country) {
-  let res = await fetch(
-    "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
-  );
-  let data = await res.text();
-  return data;
-}
+// async function weather(country) {
+//   let res = await fetch(
+//     "https://api.open-meteo.com/v1/forecast?latitude={lat}&longitude={lon}&current_weather=true"
+//   );
+//   let data = await res.text();
+//   return data;
+// }
 
-let climate = weather();
+// let climate = weather();
 
-function Datails() {
-  return ` ${weather}  , ${city}`;
-}
+// function Datails() {
+//   return ` ${weather}  , ${city}`;
+// }
 
-console.log(Datails());
+// console.log(Datails());
