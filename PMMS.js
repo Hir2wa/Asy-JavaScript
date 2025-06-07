@@ -70,8 +70,8 @@ function xmlTest(url) {
 
 async function run() {
   try {
-    let response = xmlTest("https://my-random-api.com/data");
-    let data = JSON.parse(response);
+    let response = await xmlTest("https://my-random-api.com/data");
+    let data = await JSON.parse(response);
     console.log(data);
   } catch (error) {
     console.log(error);
@@ -79,3 +79,5 @@ async function run() {
 }
 
 run();
+
+console.log(4);
