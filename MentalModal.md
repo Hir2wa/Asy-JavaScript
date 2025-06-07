@@ -32,6 +32,7 @@ fetch("https://jsonplaceholder.typicode.com/posts/1")
     console.error("Error:", error);
     console.timeEnd("fetch-data");
   });
+```
 
 3.  Strategy: Use Chunked Uploads + Retry Logic + Progress Feedback
 
@@ -70,9 +71,8 @@ If attempt > maxRetries, throw error
 
 Else, wait (await delay()), and try again
 
-
-
 5.
+
 ```
 
 | Feature                       | **Service Worker**                                                 | **Normal Browser Operations**                                       |
@@ -82,6 +82,6 @@ Else, wait (await delay()), and try again
 | **Network Control**           | Can **intercept & modify** requests via `fetch` events             | Automatically fetches from network unless cached by browser         |
 | **Offline Support**           | Handles custom caching with **Cache API** (offline-first strategy) | Default behavior; page won't work without internet unless preloaded |
 | **Push Notifications**        | Can receive push events even when the site is closed               | No push unless the tab is open and active                           |
-| **Access to DOM**             | ❌ NO access to DOM directly                                       | ✅ Can read/write to the DOM                                        |
-| **Runs When Page is Closed?** | ✅ Yes, for certain events like push or sync                       | ❌ No, stops when page closes                                       |
+| **Access to DOM**             |  NO access to DOM directly                                       |  Can read/write to the DOM                                        |
 | **Events Handled**            | `install`, `activate`, `fetch`, `sync`, `push`                     | Typical user events like click, submit, load                        |
+```
