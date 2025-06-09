@@ -241,3 +241,17 @@ async function allUsers(postss, userss) {
 }
 
 allUsers(posts, users);
+
+// 🔥 What's Next?
+// Wanna level up?
+// Here’s where you could go next:
+
+// Promise.race / Promise.any → For fastest response wins or first-success-win logic
+
+// AbortController → Cancel fetch if it takes too long (real-world stuff)
+
+// Handle APIs with errors / 404 / 500 etc
+
+// Loading spinners / async UIs → Build something cool in the browser
+
+// Connect your fetch to a real UI (like in Swing but in browser with HTML+JS)
