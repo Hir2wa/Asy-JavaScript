@@ -169,6 +169,24 @@ async function toFetch(url1, url2) {
 
     console.log(result[0][0]);
 
+    // const postCounts = result[1].map((user) => {
+    //   const userPosts = result[0].filter((post) => post.userId === user.id);
+    //   return {
+    //     username: user.username,
+    //     totalPosts: userPosts.length,
+    //   };
+    // });
+
+    let postcounts = result[1].map((user) => {
+      let userPosts = result[0].filter((post) => post.userId === user.userid);
+      return {
+        username: user.username,
+        totalPosts: userPosts.length,
+      };
+    });
+
+    console.log(postCounts);
+
     // const [posts, users] = await Promise.all([
     //   fetch(url1).then((res) => res.json()),
     //   fetch(url2).then((res) => res.json()),
