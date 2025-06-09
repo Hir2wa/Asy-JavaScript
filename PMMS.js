@@ -5,124 +5,126 @@
 // rejected with an error message stating Delay is not
 // sufficient
 
-const { json } = require("express");
+// const { json } = require("express");
 
-function createAlarm(name, delay) {
-  return new Promise(function (resolve, reject) {
-    if (delay < 2) {
-      reject("Delay Isn't Enough");
-    }
+// function createAlarm(name, delay) {
+//   return new Promise(function (resolve, reject) {
+//     if (delay < 2) {
+//       reject("Delay Isn't Enough");
+//     }
 
-    setTimeout(() => {
-      resolve(`Wake Up ${name}`);
-    }, delay);
-  });
-}
+//     setTimeout(() => {
+//       resolve(`Wake Up ${name}`);
+//     }, delay);
+//   });
+// }
 
-createAlarm("Alain", 3000)
-  .then((answers) => {
-    console.log(answers);
-  })
-  // .then((answer) => {
-  //   console.log(answer);
-  // })
-  .catch((Error) => {
-    console.log(Error);
-  });
+// createAlarm("Alain", 3000)
+//   .then((answers) => {
+//     console.log(answers);
+//   })
+//   // .then((answer) => {
+//   //   console.log(answer);
+//   // })
+//   .catch((Error) => {
+//     console.log(Error);
+//   });
 
-// transforming to async and await
+// // transforming to async and await
 
-async function testFunction() {
-  try {
-    let result = await createAlarm("alain", 4000);
-    console.log(result);
-  } catch (error) {
-    console.log(error);
-  }
-}
+// async function testFunction() {
+//   try {
+//     let result = await createAlarm("alain", 4000);
+//     console.log(result);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-testFunction();
+// testFunction();
 
-//Q2.
-//Write a javascript function that changes the background color of the body (HTML tag) every 3 seconds.
+// //Q2.
+// //Write a javascript function that changes the background color of the body (HTML tag) every 3 seconds.
 
-//Q3.
-//using xmlhttp request
+// //Q3.
+// //using xmlhttp request
 
-function xmlTest(url) {
-  return new Promise((resolve, reject) => {
-    let xhr = new XMLHttpRequest();
-    xhr.open("GET", url);
+// function xmlTest(url) {
+//   return new Promise((resolve, reject) => {
+//     let xhr = new XMLHttpRequest();
+//     xhr.open("GET", url);
 
-    xhr.onload = () => {
-      if (xhr.status >= 200 && xhr.status <= 300) {
-        resolve(xhr.responseText);
-      } else {
-        reject("Request Error  ");
-      }
-    };
+//     xhr.onload = () => {
+//       if (xhr.status >= 200 && xhr.status <= 300) {
+//         resolve(xhr.responseText);
+//       } else {
+//         reject("Request Error  ");
+//       }
+//     };
 
-    xhr.onerror = () => {
-      reject("Network Error ");
-    };
+//     xhr.onerror = () => {
+//       reject("Network Error ");
+//     };
 
-    xhr.send();
-  });
-}
+//     xhr.send();
+//   });
+// }
 
-async function run() {
-  try {
-    let response = await xmlTest("https://my-random-api.com/data");
-    let data = await JSON.parse(response);
-    console.log(data);
-  } catch (error) {
-    console.log(error);
-  }
-}
+// async function run() {
+//   try {
+//     let response = await xmlTest("https://my-random-api.com/data");
+//     let data = await JSON.parse(response);
+//     console.log(data);
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-run();
+// run();
 
-//Q3:
-//Write a JavaScript function
-//that fetches data from an API and retries the request a specified number of times if it fails.
+// //Q3:
+// //Write a JavaScript function
+// //that fetches data from an API and retries the request a specified number of times if it fails.
 
-async function retriesFetch(url) {
-  tries = 0;
-  limit = 5;
-  while (tries < limit) {
-    try {
-      let res = await fetch(url);
-      let data = await res.json();
-      console.log(data);
-      return;
-    } catch (error) {
-      tries++;
-      console.log(`trial ${tries} fails `);
+// async function retriesFetch(url) {
+//   tries = 0;
+//   limit = 5;
+//   while (tries < limit) {
+//     try {
+//       let res = await fetch(url);
+//       let data = await res.json();
+//       console.log(data);
+//       return;
+//     } catch (error) {
+//       tries++;
+//       console.log(`trial ${tries} fails `);
 
-      if (tries === limit) {
-        console.log(`All ${tries}  failed `);
-        console.log(`Error ${error}`);
-      }
-    }
-  }
-}
+//       if (tries === limit) {
+//         console.log(`All ${tries}  failed `);
+//         console.log(`Error ${error}`);
+//       }
+//     }
+//   }
+// }
 
-retriesFetch("https://jsonplaceholder.typicode.com/users");
+// retriesFetch("https://jsonplaceholder.typicode.com/users");
 
 //Q4. You are building a web application that fetches data from multiple
 // APIs to display information about different countries. You need to fetch the country
 //  details from one API and the weather information for the capital city from another API.
 
-async function CountryData(countryName) {
-  let res = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
-  let data = await res.json();
-  let country = data[0];
-  let countryOfficial = country.name.common;
-  console.log(countryOfficial);
+// async function CountryData(countryName) {
+//   let res = await fetch(`https://restcountries.com/v3.1/name/${countryName}`);
+//   let data = await res.json();
+//   let country = data[0];
+//   let countryOfficial = country.name.common;
+//   console.log(countryOfficial);
+//   let city = country.capital[0];
+//   console.log(city);
 
-  console.log(country);
-}
-CountryData("Rwanda");
+//   console.log(data[0].capitalInfo.latlng);
+// }
+// CountryData("Rwanda");
 
 // async function weather(country) {
 //   let res = await fetch(
@@ -139,3 +141,65 @@ CountryData("Rwanda");
 // }
 
 // console.log(Datails());
+
+// function toFetch(url1, url2) {
+//   return new Promise((resolved, reject) => {
+//     Promise.all([fetch(url1), fetch(url2)]);
+//   });
+// }
+
+// toFetch(url1, url2)
+//   .then(() => {
+//     console.log("Data Fetched Successfully");
+//   })
+//   .catch(console.log("something went wrong "));
+
+const url1 = "https://jsonplaceholder.typicode.com/posts";
+const url2 = "https://jsonplaceholder.typicode.com/users";
+
+async function toFetch(url1, url2) {
+  try {
+    let urls = [url1, url2];
+    const promises = urls.map((url) => fetch(url).then((res) => res.json()));
+    let result = await Promise.all(promises);
+
+    // result.forEach((promise1, index) => {
+    //   console.log(`Promise ${index}`, promise1);
+    // });
+
+    console.log(result[0][0]);
+
+    // const [posts, users] = await Promise.all([
+    //   fetch(url1).then((res) => res.json()),
+    //   fetch(url2).then((res) => res.json()),
+    // ]);
+    // console.log(`Posts: `, posts);
+    // console.log(`Users: `, users);
+  } catch (error) {
+    console.log(`Something  Went Wrong : ${error}`);
+  }
+}
+
+toFetch(url1, url2);
+
+const urls = [
+  "https://jsonplaceholder.typicode.com/posts",
+  "https://jsonplaceholder.typicode.com/users",
+  "https://invalid-url.typicode.com/does-not-exist", // 😈 will fail
+];
+
+// async function fetchData() {
+//   const promises = urls.map((url) => fetch(url).then((res) => res.json()));
+
+//   const results = await Promise.allSettled(promises);
+
+//   results.forEach((result, index) => {
+//     if (result.status === "fulfilled") {
+//       console.log(`✅ URL ${index + 1} succeeded:`, result.value);
+//     } else {
+//       console.warn(`❌ URL ${index + 1} failed:`, result.reason);
+//     }
+//   });
+// }
+
+// fetchData();

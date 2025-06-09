@@ -6,6 +6,7 @@
     <title>Change Background Color</title>
   </head>
   <body>
+    <p id="time"></p>
     <script>
       const colors = ["blue", "white", "red", "green"];
       let index = 0;
@@ -16,6 +17,12 @@
           index = 0;
         }
       }, 1000);
+
+      function UpdateddTime() {
+        const now = new Date();
+        document.querySelector("#time").textContent = now.toLocaleTimeString();
+      }
+      setInterval(UpdateddTime, 1);
     </script>
   </body>
 </html>
