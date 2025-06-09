@@ -178,7 +178,7 @@ async function toFetch(url1, url2) {
     // });
 
     let postcounts = result[1].map((user) => {
-      let userPosts = result[0].filter((post) => post.userId === user.userid);
+      let userPosts = result[0].filter((post) => post.userId === user.id);
       return {
         username: user.username,
         totalPosts: userPosts.length,
