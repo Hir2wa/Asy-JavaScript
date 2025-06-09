@@ -5,8 +5,6 @@
 // rejected with an error message stating Delay is not
 // sufficient
 
-const { useRef } = require("react");
-
 // const { json } = require("express");
 
 // function createAlarm(name, delay) {
@@ -156,39 +154,39 @@ const { useRef } = require("react");
 //   })
 //   .catch(console.log("something went wrong "));
 
-const url1 = "https://jsonplaceholder.typicode.com/posts";
-const url2 = "https://jsonplaceholder.typicode.com/users";
+// const url1 = "https://jsonplaceholder.typicode.com/posts";
+// const url2 = "https://jsonplaceholder.typicode.com/users";
 
-async function toFetch(url1, url2) {
-  try {
-    let urls = [url1, url2];
-    const promises = urls.map((url) => fetch(url).then((res) => res.json()));
-    let result = await Promise.all(promises);
+// async function toFetch(url1, url2) {
+//   try {
+//     let urls = [url1, url2];
+//     const promises = urls.map((url) => fetch(url).then((res) => res.json()));
+//     let result = await Promise.all(promises);
 
-    // result.forEach((promise1, index) => {
-    //   console.log(`Promise ${index}`, promise1);
-    // });
-    console.log(result[0][0]);
-    let postcounts = result[1].map((user) => {
-      let userPosts = result[0].filter((post) => post.userId === user.id);
-      return {
-        username: user.username,
-        totalPosts: userPosts.length,
-      };
-    });
-    console.log(postcounts);
-  } catch (error) {
-    console.log(`Something  Went Wrong : ${error}`);
-  }
-}
+// result.forEach((promise1, index) => {
+//   console.log(`Promise ${index}`, promise1);
+// });
+//     console.log(result[0][0]);
+//     let postcounts = result[1].map((user) => {
+//       let userPosts = result[0].filter((post) => post.userId === user.id);
+//       return {
+//         username: user.username,
+//         totalPosts: userPosts.length,
+//       };
+//     });
+//     console.log(postcounts);
+//   } catch (error) {
+//     console.log(`Something  Went Wrong : ${error}`);
+//   }
+// }
 
-toFetch(url1, url2);
+// toFetch(url1, url2);
 
-const urls = [
-  "https://jsonplaceholder.typicode.com/posts",
-  "https://jsonplaceholder.typicode.com/users",
-  "https://invalid-url.typicode.com/does-not-exist", // 😈 will fail
-];
+// const urls = [
+//   "https://jsonplaceholder.typicode.com/posts",
+//   "https://jsonplaceholder.typicode.com/users",
+//   "https://invalid-url.typicode.com/does-not-exist", // 😈 will fail
+// ];
 
 // async function fetchData() {
 //   const promises = urls.map((url) => fetch(url).then((res) => res.json()));
@@ -209,24 +207,25 @@ const urls = [
 const posts = "https://jsonplaceholder.typicode.com/posts";
 const users = "https://jsonplaceholder.typicode.com/users";
 
-async function allUsers(posts, users) {
+async function allUsers(postss, userss) {
   try {
-    let urls = [posts, users];
+    let urls = [postss, userss];
     let promises = urls.map((url) => fetch(url).then((res) => res.json()));
     let result = await Promise.allSettled(promises);
 
-    let [user, post] = result;
-    if (user.result !== "fulfilled") {
+    let [post, user] = result;
+    if (user.status !== "fulfilled") {
       console.log("Error feching Data");
       return;
     }
-    if (post.result !== "fulfilled ") {
+    if (post.status !== "fulfilled") {
       console.log("Error feching the user");
       return;
     }
-
-    let countPostPerUser = user.map((user) => {
-      let postuser = post.filter((post) => post.userId === userid);
+    let posts = post.value;
+    let users = user.value;
+    let countPostPerUser = users.map((user) => {
+      let postuser = posts.filter((post) => post.userId === user.id);
 
       return {
         username: user.username,
@@ -235,10 +234,10 @@ async function allUsers(posts, users) {
     });
     console.log(countPostPerUser);
 
-    console.log(result);
+    console.dir(result, { depth: null });
   } catch (error) {
     console.log(error);
   }
 }
 
-allUsers(users, posts);
+allUsers(posts, users);
