@@ -204,43 +204,43 @@
 
 // fetchData();
 
-const posts = "https://jsonplaceholder.typicode.com/posts";
-const users = "https://jsonplaceholder.typicode.com/users";
+// const posts = "https://jsonplaceholder.typicode.com/posts";
+// const users = "https://jsonplaceholder.typicode.com/users";
 
-async function allUsers(postss, userss) {
-  try {
-    let urls = [postss, userss];
-    let promises = urls.map((url) => fetch(url).then((res) => res.json()));
-    let result = await Promise.allSettled(promises);
+// async function allUsers(postss, userss) {
+//   try {
+//     let urls = [postss, userss];
+//     let promises = urls.map((url) => fetch(url).then((res) => res.json()));
+//     let result = await Promise.allSettled(promises);
 
-    let [post, user] = result;
-    if (user.status !== "fulfilled") {
-      console.log("Error feching Data");
-      return;
-    }
-    if (post.status !== "fulfilled") {
-      console.log("Error feching the user");
-      return;
-    }
-    let posts = post.value;
-    let users = user.value;
-    let countPostPerUser = users.map((user) => {
-      let postuser = posts.filter((post) => post.userId === user.id);
+//     let [post, user] = result;
+//     if (user.status !== "fulfilled") {
+//       console.log("Error feching Data");
+//       return;
+//     }
+//     if (post.status !== "fulfilled") {
+//       console.log("Error feching the user");
+//       return;
+//     }
+//     let posts = post.value;
+//     let users = user.value;
+//     let countPostPerUser = users.map((user) => {
+//       let postuser = posts.filter((post) => post.userId === user.id);
 
-      return {
-        username: user.username,
-        TotalPost: postuser.length,
-      };
-    });
-    console.log(countPostPerUser);
+//       return {
+//         username: user.username,
+//         TotalPost: postuser.length,
+//       };
+//     });
+//     console.log(countPostPerUser);
 
-    console.dir(result, { depth: null });
-  } catch (error) {
-    console.log(error);
-  }
-}
+//     console.dir(result, { depth: null });
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
-allUsers(posts, users);
+// allUsers(posts, users);
 
 // 🔥 What's Next?
 // Wanna level up?
@@ -255,3 +255,41 @@ allUsers(posts, users);
 // Loading spinners / async UIs → Build something cool in the browser
 
 // Connect your fetch to a real UI (like in Swing but in browser with HTML+JS)
+
+//loging the item in the after 2 seconds
+const items = ["A", "B", "C"];
+
+// async function logDelay(delay) {
+//   return new Promise((resolve) => {
+//     let index = 0;
+//     const interval = setInterval(() => {
+//       if (index < items.length) {
+//         console.log(items[index]);
+//         index++;
+//       } else {
+//         clearInterval(interval);
+//         resolve("✅ Done logging items");
+//       }
+//     }, delay);
+//   });
+// }
+
+// async function Delay() {
+//   let result = await logDelay(1000);
+//   console.log(result);
+// }
+
+// Delay();
+
+function wait(delay) {
+  return new Promise((res) => setTimeout(res, delay));
+}
+async function loggingItem() {
+  for (const element of items) {
+    console.log(element);
+
+    await wait(1000);
+  }
+}
+
+loggingItem();
