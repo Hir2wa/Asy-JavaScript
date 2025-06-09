@@ -184,8 +184,10 @@ async function toFetch(url1, url2) {
         totalPosts: userPosts.length,
       };
     });
+    console.log(Array.isArray(result[0]), result[0].length); // Posts
+    console.log(Array.isArray(result[1]), result[1].length); // Users
 
-    console.log(postCounts);
+    console.log(postcounts);
 
     // const [posts, users] = await Promise.all([
     //   fetch(url1).then((res) => res.json()),
