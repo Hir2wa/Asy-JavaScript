@@ -5,6 +5,8 @@
 // rejected with an error message stating Delay is not
 // sufficient
 
+const { useRef } = require("react");
+
 // const { json } = require("express");
 
 // function createAlarm(name, delay) {
@@ -166,17 +168,7 @@ async function toFetch(url1, url2) {
     // result.forEach((promise1, index) => {
     //   console.log(`Promise ${index}`, promise1);
     // });
-
     console.log(result[0][0]);
-
-    // const postCounts = result[1].map((user) => {
-    //   const userPosts = result[0].filter((post) => post.userId === user.id);
-    //   return {
-    //     username: user.username,
-    //     totalPosts: userPosts.length,
-    //   };
-    // });
-
     let postcounts = result[1].map((user) => {
       let userPosts = result[0].filter((post) => post.userId === user.id);
       return {
@@ -184,17 +176,7 @@ async function toFetch(url1, url2) {
         totalPosts: userPosts.length,
       };
     });
-    console.log(Array.isArray(result[0]), result[0].length); // Posts
-    console.log(Array.isArray(result[1]), result[1].length); // Users
-
     console.log(postcounts);
-
-    // const [posts, users] = await Promise.all([
-    //   fetch(url1).then((res) => res.json()),
-    //   fetch(url2).then((res) => res.json()),
-    // ]);
-    // console.log(`Posts: `, posts);
-    // console.log(`Users: `, users);
   } catch (error) {
     console.log(`Something  Went Wrong : ${error}`);
   }
@@ -223,3 +205,40 @@ const urls = [
 // }
 
 // fetchData();
+
+const posts = "https://jsonplaceholder.typicode.com/posts";
+const users = "https://jsonplaceholder.typicode.com/users";
+
+async function allUsers(posts, users) {
+  try {
+    let urls = [posts, users];
+    let promises = urls.map((url) => fetch(url).then((res) => res.json()));
+    let result = await Promise.allSettled(promises);
+
+    let [user, post] = result;
+    if (user.result !== "fulfilled") {
+      console.log("Error feching Data");
+      return;
+    }
+    if (post.result !== "fulfilled ") {
+      console.log("Error feching the user");
+      return;
+    }
+
+    let countPostPerUser = user.map((user) => {
+      let postuser = post.filter((post) => post.userId === userid);
+
+      return {
+        username: user.username,
+        TotalPost: postuser.length,
+      };
+    });
+    console.log(countPostPerUser);
+
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+allUsers(users, posts);
