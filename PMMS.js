@@ -86,28 +86,28 @@
 // //Write a JavaScript function
 // //that fetches data from an API and retries the request a specified number of times if it fails.
 
-// async function retriesFetch(url) {
-//   tries = 0;
-//   limit = 5;
-//   while (tries < limit) {
-//     try {
-//       let res = await fetch(url);
-//       let data = await res.json();
-//       console.log(data);
-//       return;
-//     } catch (error) {
-//       tries++;
-//       console.log(`trial ${tries} fails `);
+async function retriesFetch(url) {
+  tries = 0;
+  limit = 5;
+  while (tries < limit) {
+    try {
+      let res = await fetch(url);
+      let data = await res.json();
+      console.log(data);
+      return;
+    } catch (error) {
+      tries++;
+      console.log(`trial ${tries} fails `);
 
-//       if (tries === limit) {
-//         console.log(`All ${tries}  failed `);
-//         console.log(`Error ${error}`);
-//       }
-//     }
-//   }
-// }
+      if (tries === limit) {
+        console.log(`All ${tries}  failed `);
+        console.log(`Error ${error}`);
+      }
+    }
+  }
+}
 
-// retriesFetch("https://jsonplaceholder.typicode.com/users");
+retriesFetch("https://jsonplaceholder.typicode/users");
 
 //Q4. You are building a web application that fetches data from multiple
 // APIs to display information about different countries. You need to fetch the country
@@ -182,11 +182,11 @@
 
 // toFetch(url1, url2);
 
-// const urls = [
-//   "https://jsonplaceholder.typicode.com/posts",
-//   "https://jsonplaceholder.typicode.com/users",
-//   "https://invalid-url.typicode.com/does-not-exist", // 😈 will fail
-// ];
+const urls = [
+  "https://jsonplaceholder.typicode.com/posts",
+  "https://jsonplaceholder.typicode.com/users",
+  "https://invalid-url.typicode.com/does-not-exist", // 😈 will fail
+];
 
 // async function fetchData() {
 //   const promises = urls.map((url) => fetch(url).then((res) => res.json()));
@@ -257,7 +257,7 @@
 // Connect your fetch to a real UI (like in Swing but in browser with HTML+JS)
 
 //loging the item in the after 2 seconds
-const items = ["A", "B", "C"];
+// const items = ["A", "B", "C"];
 
 // async function logDelay(delay) {
 //   return new Promise((resolve) => {
@@ -281,15 +281,41 @@ const items = ["A", "B", "C"];
 
 // Delay();
 
-function wait(delay) {
-  return new Promise((res) => setTimeout(res, delay));
-}
-async function loggingItem() {
-  for (const element of items) {
-    console.log(element);
+// function wait(delay) {
+//   return new Promise((res) => setTimeout(res, delay));
+// }
+// async function loggingItem() {
+//   for (const element of items) {
+//     console.log(element);
 
-    await wait(1000);
+//     await wait(1000);
+//   }
+// }
+
+// loggingItem();
+
+async function fetchWithAbort() {
+  const controller = new AbortController(); // Create controller
+  const signal = controller.signal; // Signal attached to the fetch
+
+  // Abort after 1 second
+  setTimeout(() => {
+    controller.abort(); // Cancel the fetch
+  }, 1000);
+
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts", {
+      signal,
+    });
+    const data = await res.json();
+    console.log("✅ Fetched:", data);
+  } catch (err) {
+    if (err.name === "AbortError") {
+      console.log("❌ Request was aborted!");
+    } else {
+      console.log("⚠️ Other error:", err);
+    }
   }
 }
 
-loggingItem();
+fetchWithAbort();
