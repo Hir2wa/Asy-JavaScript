@@ -1,6 +1,6 @@
 // Implement a timeout for an asynchronous fetch request. If the request takes longer
 // than(5 milliseconds) , it should be aborted.
-
+//these is the gat done  10/06/2025
 let url = "https://jsonplaceholder.typicode.com/users";
 
 async function timeAbort(url, delay) {
@@ -18,3 +18,4 @@ async function timeAbort(url, delay) {
   }
 }
 timeAbort(url, 5000);
+console.log(6);
